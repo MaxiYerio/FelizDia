@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Día de la Madre!</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-pink-300 via-purple-300 to-blue-400 min-h-screen flex items-center justify-center">
+    <div class="bg-white rounded-lg shadow-lg p-10 max-w-3xl text-center fade-in">
+        <h1 class="text-4xl font-bold text-gray-800 mb-6">¡Feliz Día de la Madre!</h1>
+        <p class="text-gray-700 mb-4">Querida mamá, gracias por ser la mejor. Tu amor y dedicación nos inspiran cada día. Te dejo una foto con nuestro padre real y vos juntos, Marcos Antonio Solís.</p>
+        
+        <div class="flex justify-center mb-6">
+            <img src="/img/mama.jpg" alt="Flores" class="rounded-full" style="width: 300px; height: 300px;">
+        </div>
+
+        <p class="text-gray-600 mb-6" id="message">
+            Se que siempre te estamos volviendo loca con nuestras boludeces y bromas, ¡somos tres varones haciendo locuras todo el tiempo para hacerte reír! Pero te queremos y amamos demasiado. ¡Sos la mejor madre del mundo y nada ni nadie va a cambiar eso! Te agradezco por volvernos lo que somos. Te amamos. ❤️
+        </p>
+
+        <div class="flex flex-col items-center">
+            <button id="surpriseButton" class="bg-pink-500 text-white py-3 px-6 rounded-full hover:bg-pink-600 transition duration-300 transform hover:scale-105 mb-4">sorpresaaaaaa</button>
+            <p id="surpriseMessage" class="text-gray-700 mt-4 hidden"></p>
+
+            <!-- Collage Image -->
+            <div id="collageContainer" class="flex justify-center hidden mb-6">
+                <img src="img/mami.jpg" alt="Collage de familia" class="rounded-lg" style="width: 100%; max-width: 1000px;">
+            </div>
+        </div>
+        
+        <div class="mt-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">¡Disfruta de la música!</h2>
+            <div class="flex justify-center mb-4">
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/x-0KoCAV4mc?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="rounded-lg shadow-lg"></iframe>
+            </div>
+
+            <button id="funFactButton" class="bg-purple-500 text-white py-2 px-4 rounded-full hover:bg-purple-600 transition duration-300">¡Dame un dato divertido!</button>
+            <p id="funFact" class="text-gray-700 mt-4 hidden"></p>
+        </div>
+    </div>
+
+    <script>
+        const surpriseButton = document.getElementById('surpriseButton');
+        const surpriseMessage = document.getElementById('surpriseMessage');
+        const collageContainer = document.getElementById('collageContainer');
+
+        surpriseButton.addEventListener('click', () => {
+            surpriseMessage.classList.toggle('hidden');
+            surpriseMessage.textContent = "¡Te queremos tanto que haríamos cualquier cosa por ti! 🤪❤️";
+            collageContainer.classList.toggle('hidden'); // Mostrar/ocultar la imagen del collage
+        });
+
+        const funFactButton = document.getElementById('funFactButton');
+        const funFact = document.getElementById('funFact');
+
+        const funFacts = [
+            "¡Las mamás son las mejores cocineras del mundo!",
+            "Las mamás pueden encontrar cosas que ni siquiera sabías que habías perdido.",
+            "¡Las mamás tienen superpoderes para lidiar con locuras!",
+            "¡Siempre saben cuándo estás mintiendo!",
+            "¡Las mamás son expertas en dar abrazos curativos!"
+        ];
+
+        funFactButton.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * funFacts.length);
+            funFact.textContent = funFacts[randomIndex];
+            funFact.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
